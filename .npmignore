@@ -14,6 +14,7 @@ dist-ssr
 demo
 public
 tests
+index.html
 
 # Editor directories and files
 .vscode/*
