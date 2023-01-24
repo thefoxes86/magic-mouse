@@ -2,7 +2,8 @@
   "name": "magic-mouse",
   "private": false,
   "version": "0.2.1",
-  "main": "src/intex.tsx",
+  "main": "src/index.tsx",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
