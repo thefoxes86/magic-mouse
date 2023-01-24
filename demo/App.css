@@ -1,0 +1,15 @@
+.react-dat-gui {
+    z-index: 9999;
+}
+
+.App {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 4.0rem;
+}

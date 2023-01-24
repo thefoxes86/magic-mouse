@@ -1,0 +1,58 @@
+:root {
+    --background-outline-hover: #ff7e7e;
+    --background-cursor-hover: transparent;
+    --background-image-cursor-hover: none;
+    --cursor-width: 8px;
+    --cursor-width-hover: 60px;
+    --circle-width: 64px;
+    --circle-width-hover: 150px;
+}
+
+body {
+    cursor: none
+}
+
+
+
+.outline {
+    width: var(-circle-width);
+    height: var(-circle-width);
+    border-radius: 100%;
+    border: 1px solid #fff;
+    position: fixed;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    mix-blend-mode: difference;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+}
+.outline.hover {
+    width: var(--circle-width-hover) !important;
+    height: var(--circle-width-hover) !important;
+    background-color: var(--background-outline-hover);
+}
+
+.cursor {
+    width: var(--cursor-width);
+    height: var(--cursor-width);
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: 1px solid #fff;
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.cursor.hover {
+    background-image: var(--background-image-cursor-hover);
+    background-color: var(--background-cursor-hover) !important;
+    width: var(cursor-width-hover) !important;
+    height: var(cursor-width-hover) !important;
+    border: 0;
+}
