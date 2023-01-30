@@ -9,11 +9,13 @@ import React, {
 import './magicMouse.css'
 
 interface MagicMouseProps {
+  type?: 'light' | 'dark' | 'custom'
   pointerColor?: string
   outlineColor?: string
   hoverBackground?: string
   showCursor?: boolean
   circleWidth?: number
+  outlineWidth?: number
   circleWidthHover?: number
   useSvgOnHover?: boolean
   svg?: string
@@ -21,9 +23,11 @@ interface MagicMouseProps {
 }
 
 const MagicMouse: FC<MagicMouseProps> = ({
+  type = 'light',
   pointerColor,
   outlineColor,
   hoverBackground,
+  outlineWidth = 64,
   circleWidth = 8,
   circleWidthHover,
   showCursor = false,
@@ -49,7 +53,9 @@ const MagicMouse: FC<MagicMouseProps> = ({
 
     if (useSvgOnHover === true) {
       cursor.current.style.backgroundImage = `url(${svg})`
-      rootStyle?.style.setProperty('--cursor-width', `60px`)
+      cursor.current.style.width = '60px'
+      cursor.current.style.height = '60px'
+
       rootStyle?.style.setProperty('--background-cursor-hover', `transparent`)
     } else {
       rootStyle?.style.setProperty(
@@ -63,7 +69,9 @@ const MagicMouse: FC<MagicMouseProps> = ({
     outline.current.classList.remove('hover')
     cursor.current.classList.remove('hover')
     if (useSvgOnHover === true) {
-      cursor.current.style.backgroundImage = `white`
+      cursor.current.style.backgroundImage = `transparent`
+      cursor.current.style.width = `${circleWidth}px`
+      cursor.current.style.height = `${circleWidth}px`
       rootStyle?.style.setProperty('--cursor-width', `8px`)
       rootStyle?.style.setProperty(
         '--background-cursor-hover',
@@ -74,7 +82,6 @@ const MagicMouse: FC<MagicMouseProps> = ({
 
   useEffect(() => {
     document.body.style.cursor = showCursor ? 'auto' : 'none'
-    console.log('RENDER')
     document.addEventListener('mousemove', cursorMovement)
     let linkInPage: HTMLAnchorElement[] = [...document.querySelectorAll('a')]
     linkInPage?.forEach((item: HTMLAnchorElement) => {
@@ -108,24 +115,27 @@ const MagicMouse: FC<MagicMouseProps> = ({
     showCursor,
     useSvgOnHover,
     svg,
+    type,
   ])
   return (
     <React.Fragment>
       <div
         ref={cursor}
-        className="cursor"
+        className={`cursor cursor-${type}`}
         style={{
-          backgroundColor: pointerColor,
-          borderColor: pointerColor,
+          backgroundColor: type === 'custom' ? pointerColor : undefined,
+          borderColor: type === 'custom' ? pointerColor : undefined,
+          width: `${circleWidth}px`,
+          height: `${circleWidth}px`,
         }}
       ></div>
       <div
         ref={outline}
-        className="outline"
+        className={`outline outline-${type}`}
         style={{
-          borderColor: outlineColor,
-          width: `${circleWidth}px`,
-          height: `${circleWidth}px`,
+          borderColor: type === 'custom' ? outlineColor : undefined,
+          width: `${outlineWidth}px`,
+          height: `${outlineWidth}px`,
         }}
       ></div>
     </React.Fragment>

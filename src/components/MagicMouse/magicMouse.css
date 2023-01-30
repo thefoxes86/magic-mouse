@@ -6,31 +6,51 @@
     --cursor-width-hover: 60px;
     --circle-width: 64px;
     --circle-width-hover: 150px;
+    --border-color-light: #fff;
+    --border-color-dark: #000;
 }
 
 body {
     cursor: none
 }
 
+.outline-light {
+    border: 1px solid var(--border-color-light);
+}
 
+.outline-dark {
+    border: 1px solid var(--border-color-dark);
+}
 
 .outline {
     width: var(-circle-width);
     height: var(-circle-width);
     border-radius: 100%;
-    border: 1px solid #fff;
     position: fixed;
     background-color: transparent;
     top: 0;
     left: 0;
-    mix-blend-mode: difference;
+    border-width: 1px;
+    border-style: solid;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     pointer-events: none;
+    z-index: 99999999999;
 }
 .outline.hover {
     width: var(--circle-width-hover) !important;
     height: var(--circle-width-hover) !important;
+    mix-blend-mode: difference;
     background-color: var(--background-outline-hover);
+}
+
+.cursor-light {
+    border: 1px solid var(--border-color-light);
+    background-color: var(--border-color-light);
+}
+
+.cursor-dark {
+    border: 1px solid var(--border-color-dark);
+    background-color: var(--border-color-dark);
 }
 
 .cursor {
@@ -42,12 +62,13 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 100%;
-    border: 1px solid #fff;
+    border-width: 1px;
+    border-style: solid;
     position: fixed;
-    background-color: #fff;
     top: 0;
     left: 0;
     pointer-events: none;
+    z-index: 99999999999;
 }
 .cursor.hover {
     background-image: var(--background-image-cursor-hover);

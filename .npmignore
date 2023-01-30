@@ -8,11 +8,15 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
 dist-ssr
 *.local
 demo
 public
+src
+package
+
+*.tgz
+
 tests
 index.html
 
