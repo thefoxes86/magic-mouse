@@ -5,7 +5,8 @@ This is a lightweight React library to create an amazing mouse pointer for awsom
 ###Demo
 
 Here you can try all the props with a Data GUI interface and a simple link text
-[https://magic-mouse.vercel.app/](Demo Link)
+
+[See the Demo](https://magic-mouse.vercel.app/)
 
 ### How to use
 ---
