@@ -2,7 +2,7 @@
 
 This is a lightweight React library to create an amazing mouse pointer for awsome website.
 
-###Demo
+### Demo
 
 Here you can try all the props with a Data GUI interface and a simple link text
 
@@ -34,7 +34,7 @@ const App = ()=>{
 }
 ```
 
-#### Props
+### Props
 ---
 
 It is possible to customize the pointer behaviour
