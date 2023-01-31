@@ -19,7 +19,6 @@ interface MagicMouseProps {
   circleWidthHover?: number
   useSvgOnHover?: boolean
   svg?: string
-  reRenderCursor?: number
 }
 
 const MagicMouse: FC<MagicMouseProps> = ({
